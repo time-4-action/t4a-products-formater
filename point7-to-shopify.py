@@ -40,10 +40,107 @@ import json
 import csv
 import sys
 import re
+import os
+import hashlib
+import urllib.request
+import urllib.error
 from collections import OrderedDict
 
 
-# ── Category → Shopify tag mapping ───────────────────────────────────────────
+# ── AI Categorization ────────────────────────────────────────────────────────
+
+API_URL = "https://api.time-4-action.com/api/export/webhooks/categorize"
+EXPORT_ID = None  # loaded from .env
+BATCH_LIMIT = 30  # products per API request (API processes 30 internally, avoid timeouts)
+CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "category_cache.json")
+
+
+def load_cache() -> dict:
+    if os.path.exists(CACHE_FILE):
+        with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def save_cache(cache: dict):
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+
+def load_env() -> dict:
+    """Load key=value pairs from .env file in the same directory as the script."""
+    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    env = {}
+    if not os.path.exists(env_path):
+        return env
+    with open(env_path, "r") as f:
+        for line in f:
+            line = line.strip()
+            if "=" in line and not line.startswith("#"):
+                key, val = line.split("=", 1)
+                env[key.strip()] = val.strip()
+    return env
+
+
+def explode_category_tags(category_name: str) -> str:
+    """
+    Explode 'Windsurfing / Boards' into 'Windsurfing, Windsurfing / Boards'.
+    Explode 'A / B / C' into 'A, A / B, A / B / C'.
+    """
+    parts = [p.strip() for p in category_name.split("/")]
+    tags = []
+    for i in range(1, len(parts) + 1):
+        tags.append(" / ".join(parts[:i]))
+    return ", ".join(tags)
+
+
+def categorize_products(unique_products: list[dict], api_key: str, export_id: str = "") -> dict:
+    """
+    Call the AI categorization API and return a mapping of product code -> exploded tags string.
+    unique_products: list of dicts with at least 'code' and 'name'.
+    Returns: {code: "Tag1, Tag1 / Tag2, ..."}
+    """
+    category_map = {}
+
+    for batch_start in range(0, len(unique_products), BATCH_LIMIT):
+        batch = unique_products[batch_start:batch_start + BATCH_LIMIT]
+
+        payload = json.dumps({
+            "exportId": export_id,
+            "products": batch,
+        }).encode("utf-8")
+
+        req = urllib.request.Request(
+            API_URL,
+            data=payload,
+            headers={
+                "Content-Type": "application/json",
+                "x-api-key": api_key,
+            },
+            method="POST",
+        )
+
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="replace")
+            print(f"  [WARN] Categorization API error {e.code}: {body}")
+            continue
+        except Exception as e:
+            print(f"  [WARN] Categorization API request failed: {e}")
+            continue
+
+        for result in data.get("results", []):
+            code = result["code"]
+            cat_name = result.get("categoryName", "")
+            if cat_name:
+                category_map[code] = explode_category_tags(cat_name)
+
+    return category_map
+
+
+# ── Category → Shopify tag mapping (fallback) ────────────────────────────────
 
 CATEGORY_TAG = {
     "parts":      "Parts",
@@ -59,6 +156,13 @@ NO_STRIP_CATEGORIES = {"", "sails"}
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────
+
+def generate_sku(product_id, type_val: str) -> str:
+    """Generate a deterministic SKU from product id + TypeURLA. Same input = same output every run."""
+    key = f"{product_id}:{type_val}".encode("utf-8")
+    h = hashlib.sha256(key).hexdigest()[:8].upper()
+    return f"P7-{h}"
+
 
 def slugify(text: str) -> str:
     text = text.lower().strip()
@@ -147,8 +251,8 @@ COLUMNS = [
 
 # ── core builder ──────────────────────────────────────────────────────────────
 
-def build_rows(products: list, category: str) -> list[dict]:
-    tag = CATEGORY_TAG.get(category, category.capitalize())
+def build_rows(products: list, category: str, category_map: dict = None) -> list[dict]:
+    fallback_tag = CATEGORY_TAG.get(category, category.capitalize())
 
     # Group by id, preserving order
     groups: OrderedDict = OrderedDict()
@@ -186,9 +290,13 @@ def build_rows(products: list, category: str) -> list[dict]:
 
             type_val = (v.get("type") or "").strip()
 
+            sku = v.get("sku", "").strip()
+            if not sku:
+                sku = generate_sku(pid, type_val or str(i))
+
             row = {col: "" for col in COLUMNS}
             row["Handle"] = handle
-            row["Variant SKU"] = v.get("sku", "")
+            row["Variant SKU"] = sku
             row["Variant Price"] = price
             row["Variant Compare At Price"] = compare_price
             row["Variant Inventory Tracker"] = "shopify"
@@ -211,8 +319,10 @@ def build_rows(products: list, category: str) -> list[dict]:
             if is_first_row:
                 row["Title"] = title
                 row["Body (HTML)"] = body
-                row["Vendor"] = "Point-7"
-                row["Tags"] = tag
+                row["Vendor"] = "POINT-7"
+                # Use AI-categorized tags if available, otherwise fallback
+                ai_tag = category_map.get(str(pid), "") if category_map else ""
+                row["Tags"] = ai_tag if ai_tag else fallback_tag
                 row["Published"] = "TRUE"
 
             rows.append(row)
@@ -233,6 +343,38 @@ def build_rows(products: list, category: str) -> list[dict]:
 
 # ── main ──────────────────────────────────────────────────────────────────────
 
+def collect_unique_products(data) -> list[dict]:
+    """
+    Collect one representative product per unique id across all categories,
+    formatted for the categorization API (code, name, description, brand).
+    """
+    seen = {}
+    items_list = []
+
+    if isinstance(data, list):
+        items_list = [("", data)]
+    elif isinstance(data, dict):
+        items_list = list(data.items())
+
+    for _category, items in items_list:
+        if not isinstance(items, list):
+            continue
+        for p in items:
+            pid = str(p.get("id", ""))
+            if pid and pid not in seen:
+                entry = {
+                    "code": pid,
+                    "name": p.get("name", ""),
+                }
+                desc = p.get("description", "")
+                if desc:
+                    entry["description"] = desc
+                entry["brand"] = "POINT-7"
+                seen[pid] = entry
+
+    return list(seen.values())
+
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python point7-to-shopify.py products.json [output.csv]")
@@ -244,9 +386,39 @@ def main():
     with open(input_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    # ── AI Categorization step ────────────────────────────────────────────
+    env = load_env()
+    api_key = env.get("WEBHOOK_API_KEY", "")
+    export_id = env.get("EXPORT_ID", "")
+    category_map = {}
+
+    if api_key and export_id:
+        unique = collect_unique_products(data)
+        cache = load_cache()
+
+        # Split into cached and uncached
+        uncached = [p for p in unique if p["code"] not in cache]
+        for p in unique:
+            if p["code"] in cache:
+                category_map[p["code"]] = cache[p["code"]]
+
+        print(f"  {len(unique)} unique products: {len(unique) - len(uncached)} cached, {len(uncached)} to categorize")
+
+        if uncached:
+            print(f"  Calling AI categorization API (exportId: {export_id})...")
+            new_categories = categorize_products(uncached, api_key, export_id)
+            category_map.update(new_categories)
+            cache.update(new_categories)
+            save_cache(cache)
+            print(f"  [OK] Got {len(new_categories)} new categories from API")
+        else:
+            print(f"  [OK] All products served from cache")
+    else:
+        print("  [WARN] Missing WEBHOOK_API_KEY or EXPORT_ID in .env -- skipping AI categorization, using fallback tags")
+
+    # ── Build CSV rows ────────────────────────────────────────────────────
     if isinstance(data, list):
-        # Single flat list — no category info
-        all_rows = build_rows(data, "")
+        all_rows = build_rows(data, "", category_map)
         total_products = len(set(p.get("id") for p in data))
     elif isinstance(data, dict):
         all_rows = []
@@ -255,9 +427,9 @@ def main():
             if not isinstance(items, list) or not items:
                 continue
             cat_label = CATEGORY_TAG.get(category, repr(category))
-            rows = build_rows(items, category)
+            rows = build_rows(items, category, category_map)
             unique = len(set(p.get("id") for p in items))
-            print(f"  [{cat_label}] {len(items)} entries → {unique} products, {len(rows)} rows")
+            print(f"  [{cat_label}] {len(items)} entries -> {unique} products, {len(rows)} rows")
             all_rows.extend(rows)
             total_products += unique
     else:
@@ -269,8 +441,44 @@ def main():
         writer.writeheader()
         writer.writerows(all_rows)
 
-    print(f"\n✓ Wrote {len(all_rows)} rows → {output_file}")
+    print(f"\n[OK] Wrote {len(all_rows)} rows -> {output_file}")
     print(f"  Total unique products: {total_products}")
+
+    # ── Inventory CSV ─────────────────────────────────────────────────────
+    inventory_file = output_file.replace(".csv", "_inventory.csv")
+    inv_columns = [
+        "Handle", "Title",
+        "Option1 Name", "Option1 Value",
+        "Option2 Name", "Option2 Value",
+        "Option3 Name", "Option3 Value",
+        "SKU", "HS Code", "COO", "POINT-7",
+    ]
+    inv_rows = []
+    for row in all_rows:
+        # Skip image-only rows (no SKU, no Option1 Value)
+        if not row.get("Variant SKU") and not row.get("Option1 Value"):
+            continue
+        inv_rows.append({
+            "Handle": row["Handle"],
+            "Title": row.get("Title", ""),
+            "Option1 Name": row.get("Option1 Name", ""),
+            "Option1 Value": row.get("Option1 Value", ""),
+            "Option2 Name": "",
+            "Option2 Value": "",
+            "Option3 Name": "",
+            "Option3 Value": "",
+            "SKU": row.get("Variant SKU", ""),
+            "HS Code": "",
+            "COO": "",
+            "POINT-7": row.get("Variant Inventory Qty", "0"),
+        })
+
+    with open(inventory_file, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=inv_columns)
+        writer.writeheader()
+        writer.writerows(inv_rows)
+
+    print(f"[OK] Wrote {len(inv_rows)} rows -> {inventory_file}")
 
 
 if __name__ == "__main__":

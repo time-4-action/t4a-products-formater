@@ -1,0 +1,383 @@
+Handle,Title,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,SKU,HS Code,COO,POINT-7
+top-pin,Top Pin,Title,fixed,,,,,VARIOTOPPIN,,,1
+top-pin,,Title,Variant 2,,,,,P7-8E165E6C,,,1
+batten-tensioners,Batten tensioners,Title,Wave,,,,,wavetensioner,,,1
+batten-tensioners,,Title,Race,,,,,P7-30679A48,,,1
+batten-ferrule,Batten Ferrule,Title,Default Title,,,,,BATTENFERRULE,,,0
+batten-tip,Batten Tip,Title,Default Title,,,,,BTFRONED,,,0
+battent-tubes-1114-mm,Battent Tubes - ∅ 11/14 mm,Title,%e2%88%85-1114-mm,,,,,BATTENTUBES14,,,1
+battent-tubes-1114-mm,,Title,%e2%88%85-811-mm,,,,,BATTENTUBES11,,,1
+battent-tubes-1114-mm,,Title,Variant 3,,,,,P7-BA9C970D,,,0
+pro-carbon-tubes-only-flatwater-sails,PRO CARBON TUBES only (flatwater sails),Title,Variant 1,,,,,P7-0D32AFD5,,,0
+pro-carbon-tubes-only-flatwater-sails,,Title,Variant 2,,,,,P7-14BD74A4,,,0
+cambers,Cambers,Title,asy,,,,,CAMASY,,,1
+cambers,,Title,xlarge,,,,,CAMXLARGE,,,1
+cambers,,Title,large,,,,,CAMLARGE,,,1
+cambers,,Title,medium,,,,,CAMMEDIUM,,,1
+cambers,,Title,small,,,,,CAMSMALL,,,1
+boom-head-for-carbon-boom-140-150,Boom Head for Carbon Boom  140-150,Title,rdm,,,,,19BOOMHEADRDM-1,,,1
+boom-head-for-carbon-boom-140-150,,Title,sdm,,,,,19BOOMHEADSDM-1,,,1
+boom-head-for-alu-boom-and-slalom-boom,Boom Head for Alu Boom and Slalom Boom,Title,rdm,,,,,19BOOMHEADRDM,,,1
+boom-head-for-alu-boom-and-slalom-boom,,Title,sdm,,,,,19BOOMHEADSDM,,,1
+boom-head-rubber,Boom Head Rubber,Title,Default Title,,,,,19BOOMRUBBER,,,0
+rdm-mast-adapter-slalom-boom,RDM mast adapter Slalom boom,Title,Default Title,,,,,19RDMADAPTER,,,0
+boom-clips,Boom clips,Title,Carbon+ Pro 220-260,,,,,19BOOMCLIP220,,,1
+boom-clips,,Title,Carbon+ Pro 190-240,,,,,19BOOMCLIP190,,,1
+boom-clips,,Title,Carbon+ Pro 180-230,,,,,P7-3799464E,,,1
+boom-clips,,Title,Carbon+ Pro 170-220,,,,,19BOOMCLIP170,,,1
+boom-clips,,Title,Carbon+ Pro 160-210,,,,,P7-51A995DB,,,1
+boom-clips,,Title,Carbon+ Pro 150-200,,,,,19BOOMCLIP150,,,1
+boom-clips,,Title,Carbon+ Pro 140-190,,,,,19BOOMCLIP140,,,1
+boom-clips,,Title,Carbon C80 174-228,,,,,P7-23C10109,,,1
+boom-clips,,Title,Carbon C80 154-208,,,,,P7-D4972832,,,1
+boom-clips,,Title,Carbon C80 144-198,,,,,P7-A5958785,,,1
+boom-clips,,Title,Alu+ Pro 200-250,,,,,P7-D95078F8,,,1
+boom-clips,,Title,Alu+ Pro 180-230,,,,,P7-CF5E50F1,,,1
+boom-clips,,Title,Alu+ Pro 160-210,,,,,P7-328DF371,,,1
+boom-clips,,Title,Alu+ Pro 140-190,,,,,P7-29CC1A6C,,,1
+downhaul-pulley,Downhaul Pulley,Title,Default Title,,,,,DOWNHAULPULLEY,,,0
+extension-base-pulley,Extension base pulley,Title,rdm,,,,,19EXTBSPULLEYRDM,,,1
+extension-base-pulley,,Title,sdm,,,,,19EXTBSPULLEYSDM,,,1
+extension-ring,Extension ring,Title,rdm,,,,,19EXTRINGRDM,,,1
+extension-ring,,Title,sdm,,,,,19EXTRINGSDM,,,1
+af-vario-harness-lines-fin-foil-4046,AF Vario Harness Lines (Fin & Foil) - 40/46,Title,40-46,,,,,23F1VHL40,,,1
+af-vario-harness-lines-fin-foil-4046,,Title,38-44,,,,,23F1VHL38,,,1
+af-vario-harness-lines-fin-foil-4046,,Title,34-40,,,,,23F1VHL34,,,1
+af-vario-harness-lines-fin-foil-4046,,Title,3036,,,,,23F1VHL30,,,1
+af-vario-harness-lines-fin-foil-4046,,Title,2632,,,,,23F1VHL26,,,0
+af-vario-harness-lines-fin-foil-4046,,Title,2834,,,,,23F1VHL28,,,0
+af-vario-harness-lines-fin-foil-4046,,Title,2430,,,,,23F1VHL24,,,1
+fixed-harness-lines,Fixed Harness Lines,Title,32,,,,,18FIXEDHARNESS32,,,1
+fixed-harness-lines,,Title,30,,,,,18FIXEDHARNESS30,,,0
+fixed-harness-lines,,Title,28,,,,,18FIXEDHARNESS28,,,1
+fixed-harness-lines,,Title,26,,,,,18FIXEDHARNESS26,,,1
+fixed-harness-lines,,Title,24,,,,,18FIXEDHARNESS24,,,1
+fixed-harness-lines,,Title,22,,,,,18FIXEDHARNESS22,,,1
+qr-innovative-quick-release-harness-lines,QR – Innovative Quick Release harness lines,Title,30,,,,,22QRHL30,,,1
+qr-innovative-quick-release-harness-lines,,Title,28,,,,,22QRHL28,,,1
+qr-innovative-quick-release-harness-lines,,Title,26,,,,,22QRHL26,,,1
+qr-innovative-quick-release-harness-lines,,Title,24,,,,,22QRHL24,,,1
+qr-innovative-quick-release-harness-lines,,Title,22,,,,,22QRHL22,,,1
+vario-harness-lines-3440-blue-colour,Vario Harness Lines - 34/40 (blue colour),Title,34-40-blue-colour,,,,,18VARIOHARNESS3440,,,1
+vario-harness-lines-3440-blue-colour,,Title,32-38-blue-colour-2,,,,,18VARIOHARNESS3238,,,1
+vario-harness-lines-3440-blue-colour,,Title,3036,,,,,18VARIOHARNESS3036,,,1
+vario-harness-lines-3440-blue-colour,,Title,2834,,,,,18VARIOHARNESS2834,,,1
+vario-harness-lines-3440-blue-colour,,Title,2632,,,,,18VARIOHARNESS2632,,,0
+vario-harness-lines-3440-blue-colour,,Title,2430,,,,,18VARIOHARNESS2430,,,0
+vario-harness-lines-3440-blue-colour,,Title,2228,,,,,18VARIOHARNESS2228,,,0
+qrv-innovative-quick-release-vario-harness-lines-3036,QRV – Innovative Quick Release Vario Harness Lines - 30/36,Title,3036,,,,,P7-851E056E,,,1
+qrv-innovative-quick-release-vario-harness-lines-3036,,Title,2834,,,,,20VQRHL28,,,1
+qrv-innovative-quick-release-vario-harness-lines-3036,,Title,2632,,,,,20VQRHL26,,,1
+qrv-innovative-quick-release-vario-harness-lines-3036,,Title,2430,,,,,20VQRHL24,,,1
+qrv-innovative-quick-release-vario-harness-lines-3036,,Title,2228,,,,,20VQRHL22,,,1
+f1-pro-vario-harness-lines-foiling-26-48,"F1 Pro Vario Harness Lines (Foiling) - 26""-48""",Title,26-48,,,,,24F1PVHL26,,,1
+f1-pro-vario-harness-lines-foiling-26-48,,Title,36-58,,,,,24F1PVHL36,,,1
+padded-uphaul,Padded Uphaul,Title,Default Title,,,,,18UPHAUL,,,0
+adjustable-outhaul-set,Adjustable Outhaul Set,Title,Default Title,,,,,18OUTHAUL,,,0
+impact-vest-zipped,Impact Vest Zipped,Title,xl,,,,,23ACIVZ2,,,0
+impact-vest-zipped,,Title,l,,,,,23ACIVZL,,,0
+impact-vest-zipped,,Title,m,,,,,23ACIVZM,,,0
+impact-vest-zipped,,Title,s,,,,,23ACIVZS,,,1
+waist-harness,Waist Harness,Title,xxl,,,,,23ACHWSXXL,,,0
+waist-harness,,Title,xl,,,,,23ACHWSXL,,,0
+waist-harness,,Title,l,,,,,23ACHWSL,,,0
+waist-harness,,Title,m,,,,,23ACHWSM,,,0
+waist-harness,,Title,s,,,,,23ACHWSS,,,0
+seat-harness,SEAT HARNESS,Title,xxl,,,,,23ACHSS2,,,0
+seat-harness,,Title,xl,,,,,23ACHSSX,,,0
+seat-harness,,Title,l,,,,,23ACHSSL,,,0
+seat-harness,,Title,m,,,,,23ACHSSM,,,0
+seat-harness,,Title,s,,,,,23ACHSSS,,,1
+carbon-pro-boom-100-carbon,CARBON+ PRO BOOM (100% carbon),Title,190-240,,,,,24SCC190,,,1
+carbon-pro-boom-100-carbon,,Title,220-270,,,,,24SCC240,,,1
+carbon-pro-boom-100-carbon,,Title,170-220,,,,,24SCC170,,,1
+carbon-pro-boom-100-carbon,,Title,160-210,,,,,24WCC161,,,1
+carbon-pro-boom-100-carbon,,Title,150-200,,,,,24WCC150,,,1
+carbon-pro-boom-100-carbon,,Title,140-190,,,,,24WCC140,,,1
+rig-bag,Rig Bag,Title,Default Title,,,,,017RIGBAG,,,0
+c-carbon-80-80-carbon,C-CARBON 80 (80% carbon),Title,174-228,,,,,25WCC174,,,0
+c-carbon-80-80-carbon,,Title,154-208,,,,,25WCC154,,,1
+alu-pro-boom,ALU+ PRO BOOM,Title,140-190,,,,,22WAC140,,,0
+alu-pro-boom,,Title,160-210,,,,,22FAC160,,,1
+alu-pro-boom,,Title,180-230,,,,,22SAC180,,,1
+alu-pro-boom,,Title,200-250,,,,,22SAC200,,,1
+p7-kids-school-boom,P7 KIDS & SCHOOL BOOM,Title,100-150,,,,,22KAC100,,,1
+p7-kids-school-boom,,Title,130-180,,,,,22KAC130,,,1
+p7-kids-school-boom,,Title,140-190-ja,,,,,20KAC140,,,0
+sdm-carbon-masts-77-93-100,SDM CARBON MASTS (77-93-100%),Title,K77 - 490,,,,,P7-E4D66E1F,,,0
+sdm-carbon-masts-77-93-100,,Title,K77 - 460,,,,,25K7746,,,0
+sdm-carbon-masts-77-93-100,,Title,K77 - 430,,,,,P7-4AF7ABF7,,,1
+sdm-carbon-masts-77-93-100,,Title,K93 - 490,,,,,25K9349,,,0
+sdm-carbon-masts-77-93-100,,Title,K93 - 460,,,,,25K9346,,,0
+sdm-carbon-masts-77-93-100,,Title,K93 - 430,,,,,25K9343,,,0
+sdm-carbon-masts-77-93-100,,Title,K100 - 490,,,,,25K10049,,,1
+sdm-carbon-masts-77-93-100,,Title,K100 - 460,,,,,25K10046,,,0
+sdm-carbon-masts-77-93-100,,Title,K100 - 430,,,,,25K10043,,,1
+rdm-carbon-masts-71-91-99,RDM CARBON MASTS (71-91-99%),Title,K71 - 430,,,,,25K7743,,,0
+rdm-carbon-masts-71-91-99,,Title,K71 - 400,,,,,25K7740,,,1
+rdm-carbon-masts-71-91-99,,Title,K71 - 370,,,,,25K7737,,,1
+rdm-carbon-masts-71-91-99,,Title,K71 - 340,,,,,25K7734,,,1
+rdm-carbon-masts-71-91-99,,Title,K91 - 460,,,,,25K9146,,,1
+rdm-carbon-masts-71-91-99,,Title,K91 - 430,,,,,25K9143,,,1
+rdm-carbon-masts-71-91-99,,Title,K91 - 400,,,,,25K9140,,,1
+rdm-carbon-masts-71-91-99,,Title,K91 - 370,,,,,25K9137,,,0
+rdm-carbon-masts-71-91-99,,Title,K91 - 340,,,,,25K9134,,,1
+rdm-carbon-masts-71-91-99,,Title,K99 - 430,,,,,25K9943,,,1
+rdm-carbon-masts-71-91-99,,Title,K99 - 400,,,,,25K9940,,,1
+rdm-carbon-masts-71-91-99,,Title,K99 - 370,,,,,25K9937,,,1
+rdm-carbon-masts-71-91-99,,Title,K99 - 340,,,,,25K9934,,,1
+f100-foil-mast-foil-only,F100 FOIL MAST (foil only),Title,F100 - 460,,,,,25UF10046,,,1
+f100-foil-mast-foil-only,,Title,F100 - 490,,,,,25UF10049,,,1
+f100-foil-mast-foil-only,,Title,F100 - 520,,,,,25UF10052,,,1
+f100-foil-mast-foil-only,,Title,F100 - 570,,,,,21K10057-1,,,0
+skool-50-great-for-beginners-sails,SKOOL 50% (great for beginners sails),Title,rdm - 400,,,,,20RD3I40,,,1
+skool-50-great-for-beginners-sails,,Title,rdm - 370,,,,,20RD3I37,,,1
+skool-50-great-for-beginners-sails,,Title,rdm - 330,,,,,20RD3I33,,,1
+skool-50-great-for-beginners-sails,,Title,rdm - 300,,,,,20RD3I30,,,1
+pro-base-20-made-in-italy,PRO BASE 2.0 (made in Italy),Title,Default Title,,,,,P7-A04DB25D,,,0
+carbon-pro-ext,CARBON PRO EXT.,Title,sdm - 48,,,,,22ECES44,,,1
+carbon-pro-ext,,Title,rdm - 44,,,,,22ECER44,,,1
+carbon-pro-ext,,Title,rdm - 28,,,,,22ECER28,,,1
+carbon-pro-ext,,Title,sdm - 32,,,,,22ECES28,,,1
+alu-double-cleat-ext,ALU+ DOUBLE CLEAT EXT,Title,sdm - 48,,,,,22EDCS48,,,1
+alu-double-cleat-ext,,Title,rdm - 44,,,,,22EDCR48,,,1
+alu-double-cleat-ext,,Title,rdm - 32,,,,,22EDCR32,,,0
+alu-double-cleat-ext,,Title,sdm - 32,,,,,22EDCS32,,,1
+alu-double-pulley-ext,ALU+ DOUBLE PULLEY EXT,Title,rdm - 32,,,,,22EDPR32,,,1
+alu-double-pulley-ext,,Title,rdm - 48,,,,,22EDPR48,,,1
+alu-double-pulley-ext,,Title,sdm - 32,,,,,22EDPS32,,,1
+alu-double-pulley-ext,,Title,sdm - 48,,,,,22EDPS48,,,0
+pro-base-20-tendon,PRO BASE 2.0 TENDON,Title,Default Title,,,,,22tendonsparepart,,,0
+p7-k-hat,P7 K Hat,Title,Default Title,,,,,16FLEXFIT-1,,,0
+p7-360-net-flexfit-lxl,P7 360 NET FLEXFIT - L/XL,Title,l-xl,,,,,21FLEXT36L,,,0
+p7-360-net-flexfit-lxl,,Title,s-m,,,,,21FLEXT36S,,,0
+p7-black-tube,P7 Black Tube,Title,Default Title,,,,,23ACBTL1,,,0
+p7-tool-back-pack,P7 Tool Back Pack,Title,Default Title,,,,,23ACBML2,,,0
+fin-bag,Fin Bag,Title,Default Title,,,,,23ACABXL,,,0
+accessories-bag,Accessories Bag,Title,Default Title,,,,,18ACCESSORIESBAG,,,0
+cabin-trolley,Cabin Trolley,Title,Default Title,,,,,23ACCTXL,,,0
+travel-luggage,Travel Luggage,Title,Default Title,,,,,23ACTLXL,,,0
+quiver-bag-vario-3s,Quiver Bag - Vario 3S,Title,vario,,,,,23ACQ235,,,0
+quiver-bag-vario-3s,,Title,slalom,,,,,23ACQ275,,,0
+multi-mast-bag,Multi Mast Bag,Title,Default Title,,,,,23ACM490,,,1
+roof-rack,Roof Rack,Title,round,,,,,23ACRR02,,,1
+roof-rack,,Title,flat,,,,,23ACFR02,,,1
+saltpro-the-wave-026,SALTpro | The Wave 026,Title,5-6 - Stitched,,,,,26SAL56QB,,,0
+saltpro-the-wave-026,,Title,5-2 - Qbond,,,,,P7-6DA6FA94,,,0
+saltpro-the-wave-026,,Title,5-2 - Stitched,,,,,26SAL53QB,,,0
+saltpro-the-wave-026,,Title,5-0 - Stitched,,,,,26SAL50QB,,,1
+saltpro-the-wave-026,,Title,4-7 - Qbond,,,,,P7-2AA71E57,,,0
+saltpro-the-wave-026,,Title,4-7 - Stitched,,,,,26SAL47QB,,,0
+saltpro-the-wave-026,,Title,4-5 - Stitched,,,,,26SAL45QB,,,1
+saltpro-the-wave-026,,Title,4-2 - Qbond,,,,,P7-D9A53C4E,,,0
+saltpro-the-wave-026,,Title,4-2 - Stitched,,,,,26SAL42QB,,,0
+saltpro-the-wave-026,,Title,4-0 - Stitched,,,,,26SAL40QB,,,0
+saltpro-the-wave-026,,Title,3-7 - Qbond,,,,,P7-40BFD505,,,0
+saltpro-the-wave-026,,Title,3-7 - Stitched,,,,,26SAL37QB,,,0
+saltpro-the-wave-026,,Title,3-3 - Stitched,,,,,26SAL33QB,,,0
+saltpro-the-wave-026,,Title,2-9-kids - Stitched,,,,,26SAL29QB,,,0
+saltpro-the-wave-026,,Title,2-4-kids - Stitched,,,,,26SAL24QB,,,0
+saltpro-the-wave-025-special-offer-sail-mast-56,SALTpro | The Wave 025 (SPECIAL OFFER SAIL +MAST) - 5.6,Title,5-6,,,,,25SAL56PB,,,0
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,5-2-with-mast,,,,,P7-69CDEB25,,,0
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,5-2,,,,,25SAL52PB,,,0
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,5-0-with-mast,,,,,P7-68FFF4ED,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,5-0,,,,,25SAL50PB,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,4-7-with-mast,,,,,P7-15168183,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,4-7,,,,,25SAL47PB,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,4-5-with-mast,,,,,P7-FD38AA37,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,4-5,,,,,25SAL45PB,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,4-2-with-mast,,,,,P7-A0E0B9FB,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,4-2,,,,,25SAL42PB,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,4-0-with-mast,,,,,P7-64DAF88A,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,4-0,,,,,25SAL40PB,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,3-7-with-mast,,,,,P7-C42EDDC6,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,3-7,,,,,25SAL36PB,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,3-3-with-mast,,,,,P7-DFDECFCC,,,1
+saltpro-the-wave-025-special-offer-sail-mast-56,,Title,3-3,,,,,25SAL33PB,,,1
+spy-freestylewave-026-64,Spy | FreeStyleWave 026 - 6.4,Title,6-4,,,,,26SPY64PW,,,0
+spy-freestylewave-026-64,,Title,5-9,,,,,26SPY59PW,,,1
+spy-freestylewave-026-64,,Title,5-5-k91rdm-400-mast,,,,,P7-0CAA5D7F,,,0
+spy-freestylewave-026-64,,Title,5-5,,,,,26SPY55PW,,,1
+spy-freestylewave-026-64,,Title,5-1-k91rdm-400-mast,,,,,P7-C2218CE3,,,0
+spy-freestylewave-026-64,,Title,5-1,,,,,26SPY51PW,,,1
+spy-freestylewave-026-64,,Title,4-6-k91rdm-370-mast,,,,,P7-7FAEB2AA,,,0
+spy-freestylewave-026-64,,Title,4-6,,,,,26SPY46PW,,,1
+spy-freestylewave-026-64,,Title,4-1-k91rdm-370-mast-2,,,,,P7-6F22E4C9,,,0
+spy-freestylewave-026-64,,Title,4-1,,,,,26SPY41PW,,,1
+spy-freestylewave-026-64,,Title,3-7-custom,,,,,P7-5531DBF3,,,0
+spy-freestylewave-026-64,,Title,3-3-custom,,,,,P7-CA01A715,,,0
+spy-freestylewave-026-64,,Title,3-0-custom,,,,,P7-D75202E6,,,0
+spy-freestylewave-025-only-few-sizes-left-64,Spy | FreeStyleWave 025 (only few sizes left) - 6.4,Title,6-4,,,,,25SPY64PB,,,0
+spy-freestylewave-025-only-few-sizes-left-64,,Title,5-9,,,,,25SPY59PB,,,0
+spy-freestylewave-025-only-few-sizes-left-64,,Title,5-5,,,,,25SPY55PB,,,0
+spy-freestylewave-025-only-few-sizes-left-64,,Title,5-1,,,,,25SPY51PB,,,0
+spy-freestylewave-025-only-few-sizes-left-64,,Title,4-6,,,,,25SPY46PB,,,1
+spy-freestylewave-025-only-few-sizes-left-64,,Title,4-1,,,,,25SPY41PB,,,1
+slash-freestyle-026,Slash | Freestyle 026,Title,5-5 - Q-Bond,,,,,P7-B28E7804,,,0
+slash-freestyle-026,,Title,5-5 - Stitched,,,,,26SLA55PW,,,0
+slash-freestyle-026,,Title,5-2 - Q-Bond,,,,,26SLA52QB,,,0
+slash-freestyle-026,,Title,5-2 - Stitched,,,,,26SLA52PW,,,0
+slash-freestyle-026,,Title,4-8 - Q-Bond,,,,,26SLA48QB,,,1
+slash-freestyle-026,,Title,4-8 - Stitched,,,,,26SLA48PW,,,1
+slash-freestyle-026,,Title,4-4 - Q-Bond,,,,,26SLA44QB,,,0
+slash-freestyle-026,,Title,4-4 - Stitched,,,,,26SLA44PW,,,1
+slash-freestyle-026,,Title,4-0 - Q-Bond,,,,,26SLA40QB,,,0
+slash-freestyle-026,,Title,4-0 - Stitched,,,,,26SLA40PW,,,1
+slash-freestyle-026,,Title,3-6 - Q-Bond,,,,,P7-EE7465BE,,,0
+slash-freestyle-026,,Title,3-6 - Stitched,,,,,26SLA36PW,,,0
+slash-freestyle-025-less-then-2-pieces-per-size-55,Slash | Freestyle 025  (Less then 2 pieces per size) - 5.5,Title,5-5,,,,,25SLA55PB,,,1
+slash-freestyle-025-less-then-2-pieces-per-size-55,,Title,5-2,,,,,24SLA52GE-1,,,0
+slash-freestyle-025-less-then-2-pieces-per-size-55,,Title,4-8,,,,,25SLA48PB,,,1
+slash-freestyle-025-less-then-2-pieces-per-size-55,,Title,4-4,,,,,25SLA44PB,,,0
+slash-freestyle-025-less-then-2-pieces-per-size-55,,Title,4-0,,,,,25SLA40PB,,,0
+slash-freestyle-025-less-then-2-pieces-per-size-55,,Title,3-6,,,,,25SLA36PB,,,0
+slash-freestyle-024-only-few-sizes-left-55,Slash | Freestyle 024 (only few sizes left) - 5.5,Title,5-5,,,,,24SLA55GE,,,0
+slash-freestyle-024-only-few-sizes-left-55,,Title,5-2,,,,,24SLA52GE,,,0
+slash-freestyle-024-only-few-sizes-left-55,,Title,4-8,,,,,24SLA48GE,,,1
+slash-freestyle-024-only-few-sizes-left-55,,Title,4-4,,,,,24SLA44GE,,,0
+slash-freestyle-024-only-few-sizes-left-55,,Title,4-0,,,,,24SLA40GE,,,0
+slash-freestyle-024-only-few-sizes-left-55,,Title,3-6,,,,,24SLA36GE,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,"RUSH-1 | Crossride 026 - 7,7 + K93sdm 460 mast",Title,77-k93sdm-460-mast,,,,,P7-5585715A,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,77,,,,,26RH177PW,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,67-k93sdm-460-mast,,,,,P7-06332213,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,67,,,,,26RH167PW,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,57-k91rdm-400-mast,,,,,P7-4FCD9E5F,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,57,,,,,26RH157PW,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,51-k91rdm-400-mast,,,,,P7-AC82B1BB,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,51,,,,,26RH151PW,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,47-k91rdm-400-mast,,,,,P7-430733EB,,,0
+rush-1-crossride-026-77-k93sdm-460-mast,,Title,47,,,,,26RH147PW,,,1
+ac-f-crossride-025-75,AC-F | Crossride 025 - 7.5,Title,7-5,,,,,P7-E0841182,,,0
+ac-f-crossride-025-75,,Title,6-9,,,,,P7-B89CC0CF,,,0
+ac-f-crossride-025-75,,Title,6-4,,,,,P7-D30AB7D0,,,0
+ac-f-crossride-025-75,,Title,5-9,,,,,P7-2BCC4749,,,0
+ac-f-crossride-025-75,,Title,5-4,,,,,P7-0460DD4F,,,0
+ac-0-no-cam-race-026,AC-0 | No Cam Race 026,Title,8-6 - smoke-grey - Stitched,,,,,26AC086SB,,,1
+ac-0-no-cam-race-026,,Title,8-6 - pearl-white - Stitched,,,,,26AC086PW,,,0
+ac-0-no-cam-race-026,,Title,7-7 - smoke-grey - Qbond,,,,,26AC077QB,,,1
+ac-0-no-cam-race-026,,Title,7-7 - smoke-grey - Stitched,,,,,26AC077SB,,,1
+ac-0-no-cam-race-026,,Title,7-7 - pearl-white - Stitched,,,,,26AC077PW,,,1
+ac-0-no-cam-race-026,,Title,6-9 - smoke-grey - Qbond,,,,,26AC069QB,,,0
+ac-0-no-cam-race-026,,Title,6-9 - smoke-grey - Stitched,,,,,26AC069SB,,,1
+ac-0-no-cam-race-026,,Title,6-9 - pearl-white - Stitched,,,,,26AC069PW,,,0
+ac-0-no-cam-race-026,,Title,6-5 - smoke-grey - Qbond,,,,,26AC065QB,,,1
+ac-0-no-cam-race-026,,Title,6-5 - smoke-grey - Stitched,,,,,26AC065SB,,,1
+ac-0-no-cam-race-026,,Title,6-5 - pearl-white - Stitched,,,,,26AC065PW,,,0
+ac-0-no-cam-race-026,,Title,6-1 - smoke-grey - Qbond,,,,,26AC061QB,,,1
+ac-0-no-cam-race-026,,Title,6-1 - smoke-grey - Stitched,,,,,26AC061SB,,,0
+ac-0-no-cam-race-026,,Title,6-1 - pearl-white - Stitched,,,,,26AC061PW,,,0
+ac-0-no-cam-race-026,,Title,5-4 - smoke-grey - Stitched,,,,,26AC054SB,,,1
+ac-0-no-cam-race-026,,Title,5-4 - pearl-white - Stitched,,,,,26AC054PW,,,0
+ac-0-no-cam-race-026,,Title,4-7 - smoke-grey - Stitched,,,,,26AC047SB,,,0
+ac-0-no-cam-race-026,,Title,4-7 - pearl-white - Stitched,,,,,26AC047PW,,,1
+ac-0-no-cam-race-026,,Title,4-0 - smoke-grey - Stitched,,,,,26AC040SB,,,0
+ac-0-no-cam-race-026,,Title,4-0 - pearl-white - Stitched,,,,,26AC040PW,,,1
+ac-0-no-cam-race-025,AC-0 | No Cam Race 025,Title,8-6 - smoke-black,,,,,25AC086SB,,,0
+ac-0-no-cam-race-025,,Title,8-6 - slate-grey,,,,,25AC086SG,,,0
+ac-0-no-cam-race-025,,Title,7-7 - smoke-black,,,,,25AC077SB,,,0
+ac-0-no-cam-race-025,,Title,7-7 - slate-grey,,,,,25AC077SG,,,0
+ac-0-no-cam-race-025,,Title,6-9 - smoke-black,,,,,25AC069SB,,,0
+ac-0-no-cam-race-025,,Title,6-9 - slate-grey,,,,,25AC069SG,,,0
+ac-0-no-cam-race-025,,Title,6-1 - smoke-black,,,,,25AC061SB,,,0
+ac-0-no-cam-race-025,,Title,6-1 - slate-grey,,,,,25AC061SG,,,0
+ac-0-no-cam-race-025,,Title,5-4 - smoke-black,,,,,25AC054SB,,,0
+ac-0-no-cam-race-025,,Title,5-4 - slate-grey,,,,,25AC054SG,,,0
+ac-0-no-cam-race-025,,Title,4-7 - smoke-black,,,,,25AC047SB,,,0
+ac-0-no-cam-race-025,,Title,4-7 - slate-grey,,,,,25AC047SG,,,1
+ac-0-no-cam-race-025,,Title,4-0 - smoke-black,,,,,P7-1431227D,,,1
+ac-0-no-cam-race-025,,Title,4-0 - slate-grey,,,,,25AC041SB,,,0
+ac-0-no-cam-race-025,,Title,-,,,,,P7-EDC58439,,,1
+ac-2-2-cam-race-025-buy-3-extra-5-88,AC-2 | 2 Cam Race 025 (Buy 3 | extra -5%) - 8.8,Title,8-8,,,,,25AC288SB,,,0
+ac-2-2-cam-race-025-buy-3-extra-5-88,,Title,7-8,,,,,25AC278SB,,,1
+ac-2-2-cam-race-025-buy-3-extra-5-88,,Title,6-8,,,,,25AC268SB,,,1
+ac-2-2-cam-race-025-buy-3-extra-5-88,,Title,5-8,,,,,25AC258SB,,,1
+ac-2-2-cam-race-025-buy-3-extra-5-88,,Title,5-3,,,,,25AC253SB,,,0
+ac-2-2-cam-race-025-buy-3-extra-5-88,,Title,4-8,,,,,25AC248SB,,,1
+ac-3-racing-026-82-k100sdm-460-mast,AC-3 | Racing 026 - 8.2 + k100sdm 460 mast,Title,8-2-k100sdm-460-mast,,,,,P7-E4F1E0F1,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,8-2,,,,,26AC382PW,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,7-8-k100sdm-460-mast,,,,,P7-1235A771,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,7-8,,,,,26AC378PW,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,7-3-k100sdm-460-mast,,,,,P7-D64AF2F3,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,7-3,,,,,26AC373PW,,,1
+ac-3-racing-026-82-k100sdm-460-mast,,Title,6-8-k100sdm-430-mast,,,,,P7-1869DCD8,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,6-8,,,,,26AC368PW,,,1
+ac-3-racing-026-82-k100sdm-460-mast,,Title,6-5-k100sdm-430-mast,,,,,P7-66AAD9A7,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,6-5,,,,,26AC388PW,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,5-9-k99rdm-400-mast,,,,,P7-B4DEDBB9,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,5-9,,,,,26AC359P6,,,1
+ac-3-racing-026-82-k100sdm-460-mast,,Title,5-4-k99rdm-400-mast,,,,,P7-A9646167,,,0
+ac-3-racing-026-82-k100sdm-460-mast,,Title,5-4,,,,,26AC354PW,,,1
+9-light-wind-freerace-026,9+ | LIGHT WIND FREERACE 026,Title,Default Title,,,,,25ACFSG-6,,,0
+ac-1-racing-025-86,AC-1 | Racing 025 - 8.6,Title,8-6,,,,,25AC185SB,,,1
+ac-1-racing-025-86,,Title,7-8,,,,,25AC178SB,,,0
+ac-1-racing-025-86,,Title,6-8,,,,,25AC168SB,,,0
+ac-1-racing-025-86,,Title,5-9,,,,,25AC159SB,,,0
+ac-1-racing-025-86,,Title,5-4,,,,,25AC154SB,,,1
+ac-1-ltd-pro-racing-026,AC-1 LTD | Pro Racing 026,Title,8-8 - Qbond,,,,,26LTD88QB,,,0
+ac-1-ltd-pro-racing-026,,Title,8-2 - Stitched,,,,,26LTD82PW,,,1
+ac-1-ltd-pro-racing-026,,Title,8-2 - Qbond,,,,,26LTD82QB,,,0
+ac-1-ltd-pro-racing-026,,Title,7-8 - Stitched,,,,,26LTD78PW,,,0
+ac-1-ltd-pro-racing-026,,Title,7-8 - Qbond,,,,,26LTD7QB,,,0
+ac-1-ltd-pro-racing-026,,Title,7-3 - Stitched,,,,,26LTD73PW,,,0
+ac-1-ltd-pro-racing-026,,Title,7-3 - Qbond,,,,,26LTD73QB,,,0
+ac-1-ltd-pro-racing-026,,Title,6-8 - Stitched,,,,,26LTD68PW,,,0
+ac-1-ltd-pro-racing-026,,Title,6-8 - Qbond,,,,,26LTD68QB,,,0
+ac-1-ltd-pro-racing-026,,Title,6-5 - Stitched,,,,,26LTD65PW,,,0
+ac-1-ltd-pro-racing-026,,Title,6-5 - Qbond,,,,,26LTD65QB,,,0
+ac-1-ltd-pro-racing-026,,Title,5-9 - Stitched,,,,,26LTD59PW,,,0
+ac-1-ltd-pro-racing-026,,Title,5-9 - Qbond,,,,,26LTD59QB,,,0
+ac-1-ltd-pro-racing-026,,Title,5-4 - Stitched,,,,,26LTD54PW,,,0
+ac-1-ltd-pro-racing-026,,Title,5-4 - Qbond,,,,,26LTD54QB,,,0
+ac-1-ltd-pro-racing-026,,Title,4-9 - Stitched,,,,,26LTD49PW,,,1
+ac-1-ltd-pro-racing-025-88,AC-1 LTD | Pro Racing 025 - 8.8,Title,8-8,,,,,25LTD88SB,,,0
+ac-1-ltd-pro-racing-025-88,,Title,7-8,,,,,25LTD78SB,,,0
+ac-1-ltd-pro-racing-025-88,,Title,6-8,,,,,25LTD68SB,,,0
+ac-1-ltd-pro-racing-025-88,,Title,5-9,,,,,25LTD59SB,,,1
+ac-1-ltd-pro-racing-025-88,,Title,5-4,,,,,25LTD54SB,,,1
+ac-1-ltd-pro-racing-025-88,,Title,4-9,,,,,25LTD49SB,,,1
+f1-foil-pro-race-026-85,F1 | Foil Pro Race 026 - 8.5,Title,8-5,,,,,26FSL85QB,,,1
+f1-foil-pro-race-026-85,,Title,8-0,,,,,26FSL80QB,,,0
+f1-foil-pro-race-026-85,,Title,6-9,,,,,26FSL69QB,,,0
+f1-foil-pro-race-026-85,,Title,5-8,,,,,26FSL58QB,,,1
+f1-sl-foil-pro-race-025-87,F1 SL | Foil Pro Race 025 - 8.7,Title,8-7,,,,,25FSL87ST,,,1
+f1-sl-foil-pro-race-025-87,,Title,7-7,,,,,25FSL77ST,,,0
+f1-sl-foil-pro-race-025-87,,Title,6-7,,,,,25FSL67ST,,,0
+f1-sl-foil-pro-race-025-87,,Title,5-7,,,,,25FSL57ST,,,1
+f1-sl-foil-pro-race-025-87,,Title,4-7,,,,,25FSL47ST,,,1
+f1-sl-foil-pro-race-025-87,,Title,3-7,,,,,25FSL37ST,,,1
+f0-foil-no-cam-race-026-79,F0 | Foil No Cam Race 026 - 7.9,Title,7-9,,,,,26F1X79YT,,,0
+f0-foil-no-cam-race-026-79,,Title,6-9,,,,,26F1X69YT,,,1
+f0-foil-no-cam-race-026-79,,Title,5-9,,,,,26F1X59YT,,,0
+f0-foil-no-cam-race-026-79,,Title,4-9,,,,,26F1X49YT,,,0
+f1-x-foil-no-cam-race-025-79,F1-X | Foil No Cam Race 025 - 7.9,Title,7-9,,,,,P7-EE11FFE7,,,0
+f1-x-foil-no-cam-race-025-79,,Title,6-9,,,,,P7-0BA67466,,,0
+f1-x-foil-no-cam-race-025-79,,Title,5-9,,,,,P7-5D84DDAF,,,0
+f1-x-foil-no-cam-race-025-79,,Title,4-9,,,,,P7-E84831D1,,,1
+f1-e-foil-fin-hybrid-024-84,F1-E | Foil Fin Hybrid 024 - 8.4,Title,8-4,,,,,23FE84B,,,1
+f1-e-foil-fin-hybrid-024-84,,Title,7-4,,,,,23FE74B,,,0
+f1-e-foil-fin-hybrid-024-84,,Title,6-4,,,,,23FE64B,,,0
+f1-e-foil-fin-hybrid-024-84,,Title,5-4,,,,,23FE54B,,,0
+f1-e-foil-fin-hybrid-024-84,,Title,44,,,,,24FE44ST,,,0
+the-pro-wave-stage-025-20-23-november-fuerteventura-rider,THE PRO WAVE STAGE 025 | 20-23 NOVEMBER | FUERTEVENTURA - Rider,Title,Default Title,,,,,slalomstage024rider-1,,,1
+skool-easy-learning-025,Skool Easy Learning 025,Title,5-5 - black,,,,,21SKO55Y,,,1
+skool-easy-learning-025,,Title,5-0 - black,,,,,21SKO50Y,,,1
+skool-easy-learning-025,,Title,4-5 - black,,,,,21SKO45Y,,,1
+skool-easy-learning-025,,Title,4-0 - black,,,,,21SKO40Y,,,1
+skool-easy-learning-025,,Title,3-5 - black,,,,,21SKO35Y,,,1
+skool-easy-learning-025,,Title,3-0 - black,,,,,21SKO30Y,,,1
+skool-easy-learning-025,,Title,2-5 - black,,,,,21SKO25Y,,,1
+skool-easy-learning-025,,Title,2-0 - black,,,,,21SKO21Y,,,1
+skool-easy-learning-025,,Title,1-5 - black,,,,,21SKO15Y,,,1
+skool-easy-learning-025,,Title,1-0 - black,,,,,P7-405C839E,,,1
+skool-easy-learning-package,Skool Easy Learning Package,Title,5-5 - black,,,,,Skpckg55,,,0
+skool-easy-learning-package,,Title,5-0 - black,,,,,Skpckg50,,,0
+skool-easy-learning-package,,Title,4-5 - black,,,,,Skpckg45,,,0
+skool-easy-learning-package,,Title,4-0 - black,,,,,Skpckg40,,,0
+skool-easy-learning-package,,Title,3-5 - black,,,,,Skpckg35,,,0
+skool-easy-learning-package,,Title,3-0 - black,,,,,Skpckg30,,,0
+skool-easy-learning-package,,Title,2-5 - black,,,,,Skpckg25,,,0
+skool-easy-learning-package,,Title,2-0 - black,,,,,Skpckg20,,,0
+skool-easy-learning-package,,Title,1-5 - black,,,,,Skpckg15,,,0
+skool-easy-learning-package,,Title,1-0 - black,,,,,Skpckg10,,,0
+s-line-skool-board-230,S-Line Skool Board - 230,Title,230,,,,,SBOARD230,,,1
+s-line-skool-board-230,,Title,200,,,,,SBOARD200,,,1
