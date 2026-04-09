@@ -1,8 +1,18 @@
-# Auto-Generated SKUs
+# SKU Handling
 
-63 out of 382 product entries in the source data are missing SKUs. The script generates deterministic SKUs for these using a SHA-256 hash.
+All SKUs are prefixed with `P7-` to namespace them within Shopify.
 
-## Format
+## Existing SKUs
+
+Original SKUs from the source data get the prefix prepended:
+- `VARIOTOPPIN` becomes `P7-VARIOTOPPIN`
+- `23ACIVZM` becomes `P7-23ACIVZM`
+
+## Auto-Generated SKUs
+
+63 out of 382 product entries are missing SKUs. The script generates deterministic ones using a SHA-256 hash.
+
+### Format
 
 ```
 P7-XXXXXXXX
@@ -10,7 +20,7 @@ P7-XXXXXXXX
 
 Where `XXXXXXXX` is the first 8 characters (uppercase hex) of the SHA-256 hash.
 
-## Hash Input
+### Hash Input
 
 The hash is computed from the string `{product_id}:{type}`:
 
@@ -18,13 +28,9 @@ The hash is computed from the string `{product_id}:{type}`:
 - `type` -- the `type` field (differentiates variants within a product)
 - If `type` is empty, the variant's index position is used instead
 
-## Determinism
+### Determinism
 
 The same input always produces the same SKU. Running the script multiple times on the same data will generate identical SKUs, so Shopify can match them on re-import.
-
-## Identifying Generated SKUs
-
-All auto-generated SKUs start with `P7-`, making them easy to distinguish from original Point-7 SKUs (which use codes like `VARIOTOPPIN`, `23ACIVZM`, etc.).
 
 ## Products Missing SKUs
 

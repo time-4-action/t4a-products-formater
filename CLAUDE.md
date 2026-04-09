@@ -73,7 +73,9 @@ Category paths like `Katalog / Windsurf / Boards` are exploded into multiple Sho
 Katalog, Katalog / Windsurf, Katalog / Windsurf / Boards
 ```
 
-## Auto-generated SKUs
+## SKU Prefix
+
+All SKUs are prefixed with `P7-`. Existing SKUs like `VARIOTOPPIN` become `P7-VARIOTOPPIN`.
 
 Products missing a SKU get a deterministic one generated via SHA-256 hash:
 - Input: `{product_id}:{type}` (or `{product_id}:{variant_index}` if type is empty)
@@ -92,7 +94,7 @@ Follows standard Shopify product import format:
 | Tags | AI-categorized (exploded hierarchy), or fallback category tag |
 | Option1 Name | `"Title"` |
 | Option1 Value | `type` field value, or `"Default Title"` for single-variant |
-| Variant SKU | `sku` from JSON, or auto-generated `P7-XXXXXXXX` |
+| Variant SKU | `P7-` + `sku` from JSON, or auto-generated `P7-XXXXXXXX` |
 | Variant Price | `eu rrp +vat` (comma to dot) |
 | Variant Compare At Price | `eu rrp` (only if different from price) |
 | Variant Inventory Qty | `inventory` |

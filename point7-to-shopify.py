@@ -293,6 +293,8 @@ def build_rows(products: list, category: str, category_map: dict = None) -> list
             sku = v.get("sku", "").strip()
             if not sku:
                 sku = generate_sku(pid, type_val or str(i))
+            elif not sku.startswith("P7-"):
+                sku = f"P7-{sku}"
 
             row = {col: "" for col in COLUMNS}
             row["Handle"] = handle
