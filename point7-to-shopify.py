@@ -252,7 +252,7 @@ COLUMNS = [
 
 # ── core builder ──────────────────────────────────────────────────────────────
 
-def build_rows(products: list, category: str, category_map: dict = None) -> list[dict]:
+def build_rows(products: list, category: str, category_map: dict = None, option1_name: str = "Title") -> list[dict]:
     fallback_tag = CATEGORY_TAG.get(category, category.capitalize())
 
     # Group by id, preserving order
@@ -313,10 +313,10 @@ def build_rows(products: list, category: str, category_map: dict = None) -> list
             row["Variant Image"] = variant_image if is_multi else ""
 
             if is_multi:
-                row["Option1 Name"] = "Title"
+                row["Option1 Name"] = option1_name
                 row["Option1 Value"] = type_val if type_val else f"Variant {i+1}"
             else:
-                row["Option1 Name"] = "Title"
+                row["Option1 Name"] = option1_name
                 row["Option1 Value"] = "Default Title"
 
             if is_first_row:
@@ -382,12 +382,12 @@ def main():
     parser = argparse.ArgumentParser(description="Convert Point-7 products JSON to Shopify CSV")
     parser.add_argument("input_file", help="Path to products.json")
     parser.add_argument("output_file", nargs="?", default="shopify_import.csv", help="Output CSV path (default: shopify_import.csv)")
-    parser.add_argument("--inv-title-column", default="Variant", help="Column name for product title in the inventory CSV (default: Variant)")
+    parser.add_argument("--option1-name", default="Variant", help="Value for Option1 Name in the product CSV (default: Variant)")
     args = parser.parse_args()
 
     input_file = args.input_file
     output_file = args.output_file
-    inv_title_column = args.inv_title_column
+    option1_name = args.option1_name
 
     with open(input_file, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -424,7 +424,7 @@ def main():
 
     # ── Build CSV rows ────────────────────────────────────────────────────
     if isinstance(data, list):
-        all_rows = build_rows(data, "", category_map)
+        all_rows = build_rows(data, "", category_map, option1_name)
         total_products = len(set(p.get("id") for p in data))
     elif isinstance(data, dict):
         all_rows = []
@@ -433,7 +433,7 @@ def main():
             if not isinstance(items, list) or not items:
                 continue
             cat_label = CATEGORY_TAG.get(category, repr(category))
-            rows = build_rows(items, category, category_map)
+            rows = build_rows(items, category, category_map, option1_name)
             unique = len(set(p.get("id") for p in items))
             print(f"  [{cat_label}] {len(items)} entries -> {unique} products, {len(rows)} rows")
             all_rows.extend(rows)
@@ -453,7 +453,7 @@ def main():
     # ── Inventory CSV ─────────────────────────────────────────────────────
     inventory_file = output_file.replace(".csv", "_inventory.csv")
     inv_columns = [
-        "Handle", inv_title_column,
+        "Handle", "Title",
         "Option1 Name", "Option1 Value",
         "Option2 Name", "Option2 Value",
         "Option3 Name", "Option3 Value",
@@ -466,7 +466,7 @@ def main():
             continue
         inv_rows.append({
             "Handle": row["Handle"],
-            inv_title_column: row.get("Title", ""),
+            "Title": row.get("Title", ""),
             "Option1 Name": row.get("Option1 Name", ""),
             "Option1 Value": row.get("Option1 Value", ""),
             "Option2 Name": "",
