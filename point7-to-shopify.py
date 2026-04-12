@@ -36,6 +36,7 @@ Pricing:
     - Compare At     ← "eu rrp"       (only set if different from price)
 """
 
+import argparse
 import json
 import csv
 import sys
@@ -378,12 +379,15 @@ def collect_unique_products(data) -> list[dict]:
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python point7-to-shopify.py products.json [output.csv]")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Convert Point-7 products JSON to Shopify CSV")
+    parser.add_argument("input_file", help="Path to products.json")
+    parser.add_argument("output_file", nargs="?", default="shopify_import.csv", help="Output CSV path (default: shopify_import.csv)")
+    parser.add_argument("--inv-title-column", default="Variant", help="Column name for product title in the inventory CSV (default: Variant)")
+    args = parser.parse_args()
 
-    input_file = sys.argv[1]
-    output_file = sys.argv[2] if len(sys.argv) > 2 else "shopify_import.csv"
+    input_file = args.input_file
+    output_file = args.output_file
+    inv_title_column = args.inv_title_column
 
     with open(input_file, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -449,7 +453,7 @@ def main():
     # ── Inventory CSV ─────────────────────────────────────────────────────
     inventory_file = output_file.replace(".csv", "_inventory.csv")
     inv_columns = [
-        "Handle", "Title",
+        "Handle", inv_title_column,
         "Option1 Name", "Option1 Value",
         "Option2 Name", "Option2 Value",
         "Option3 Name", "Option3 Value",
@@ -462,7 +466,7 @@ def main():
             continue
         inv_rows.append({
             "Handle": row["Handle"],
-            "Title": row.get("Title", ""),
+            inv_title_column: row.get("Title", ""),
             "Option1 Name": row.get("Option1 Name", ""),
             "Option1 Value": row.get("Option1 Value", ""),
             "Option2 Name": "",
