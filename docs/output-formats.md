@@ -1,57 +1,72 @@
-# Output File Formats
+# Output Formats
 
-The script generates two CSV files for Shopify import.
+The converter generates two CSV files for Shopify import.
 
-## Product Import (`shopify_import.csv`)
+## Product Import CSV
 
-Standard Shopify product import format with these columns:
+**Default filename**: `shopify_import.csv`
 
-| Column | Description |
-|--------|-------------|
-| Handle | Slugified product title |
-| Title | Product name (type suffix stripped for parts/components/apparel/bags) |
-| Body (HTML) | Description converted to HTML paragraphs |
-| Vendor | `POINT-7` |
-| Tags | AI-categorized tags (exploded hierarchy) |
-| Published | `TRUE` |
-| Option1 Name | `Title` |
-| Option1 Value | Variant type, or `Default Title` for single-variant products |
-| Variant SKU | Original or auto-generated (`P7-XXXXXXXX`) |
-| Variant Price | `eu rrp +vat` (comma converted to dot) |
-| Variant Compare At Price | `eu rrp` (only if different from price) |
-| Variant Inventory Tracker | `shopify` |
-| Variant Inventory Qty | `inventory` from source |
-| Variant Inventory Policy | `deny` |
-| Variant Fulfillment Service | `manual` |
-| Variant Barcode | `ean` |
-| Image Src | Full-resolution image URL |
-| Variant Image | Same as Image Src (multi-variant only) |
-| Variant Requires Shipping | `TRUE` |
-| Variant Taxable | `TRUE` |
+Standard Shopify product import format. Each product occupies one or more rows depending on the number of variants and images.
 
-### Row types
+### Columns
 
-- **First variant row**: Contains Title, Body, Vendor, Tags, Published + variant data
-- **Additional variant rows**: Handle + variant data only
-- **Image-only rows**: Handle + Image Src (for medium-resolution images)
+| Column | Source | Example |
+|---|---|---|
+| Handle | Slugified product title | `impact-vest-zipped` |
+| Title | Product name (type suffix stripped) | `Impact Vest Zipped` |
+| Body (HTML) | Description converted to HTML | `<p>Lightweight vest...</p>` |
+| Vendor | Hardcoded | `POINT-7` |
+| Tags | AI-categorized or fallback | `Katalog, Katalog / Windsurf` |
+| Published | Hardcoded | `TRUE` |
+| Option1 Name | Configurable via `--option1-name` | `Variant` |
+| Option1 Value | `type` field or `Default Title` | `M` |
+| Variant SKU | Prefixed or auto-generated | `P7-23ACIVZM` |
+| Variant Price | `eu rrp +vat` (comma to dot) | `129.00` |
+| Variant Compare At Price | `eu rrp` (if different from price) | `105.74` |
+| Variant Inventory Tracker | Hardcoded | `shopify` |
+| Variant Inventory Qty | `inventory` field | `1` |
+| Variant Inventory Policy | Hardcoded | `deny` |
+| Variant Fulfillment Service | Hardcoded | `manual` |
+| Variant Barcode | `ean` field | `0782706458544` |
+| Image Src | Full-resolution image URL | `https://point-7.com/.../full.jpg` |
+| Variant Image | Same as Image Src (multi-variant only) | `https://point-7.com/.../full.jpg` |
+| Variant Requires Shipping | Hardcoded | `TRUE` |
+| Variant Taxable | Hardcoded | `TRUE` |
 
-## Inventory Import (`shopify_import_inventory.csv`)
+### Row Types
 
-Shopify inventory import format, one row per variant:
+Each product generates multiple row types:
 
-| Column | Description |
-|--------|-------------|
-| Handle | Product handle |
-| Title | Product title (first variant row only) |
-| Option1 Name | `Title` |
-| Option1 Value | Variant type |
-| Option2 Name | Empty |
-| Option2 Value | Empty |
-| Option3 Name | Empty |
-| Option3 Value | Empty |
-| SKU | Variant SKU |
-| HS Code | Empty |
-| COO | Empty |
-| POINT-7 | Inventory quantity at the POINT-7 location |
+| Row Type | Contains | When |
+|---|---|---|
+| **First variant** | Title, Body, Vendor, Tags, Published + variant data | Always (one per product) |
+| **Additional variants** | Handle + variant data only | Multi-variant products |
+| **Image-only** | Handle + Image Src | Medium-resolution images that differ from full-res |
 
-The inventory file name is derived from the product file: `shopify_import.csv` produces `shopify_import_inventory.csv`.
+---
+
+## Inventory Import CSV
+
+**Default filename**: `shopify_import_inventory.csv`
+
+Shopify inventory import format with one row per variant.
+
+### Columns
+
+| Column | Description | Example |
+|---|---|---|
+| Handle | Product handle | `impact-vest-zipped` |
+| Title | Product title (first variant only) | `Impact Vest Zipped` |
+| Option1 Name | Configurable via `--option1-name` | `Variant` |
+| Option1 Value | Variant type | `M` |
+| Option2 Name | Empty | |
+| Option2 Value | Empty | |
+| Option3 Name | Empty | |
+| Option3 Value | Empty | |
+| SKU | Variant SKU | `P7-23ACIVZM` |
+| HS Code | Empty (not provided in source data) | |
+| COO | Empty (country of origin) | |
+| POINT-7 | Inventory quantity at the POINT-7 location | `1` |
+
+The inventory filename is derived automatically from the product filename:
+`shopify_import.csv` produces `shopify_import_inventory.csv`.

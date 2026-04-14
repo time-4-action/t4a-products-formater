@@ -1,16 +1,19 @@
 # SKU Handling
 
-All SKUs are prefixed with `P7-` to namespace them within Shopify.
+All SKUs are prefixed with `P7-` to namespace Point-7 products within Shopify and avoid collisions with other vendors.
 
 ## Existing SKUs
 
-Original SKUs from the source data get the prefix prepended:
-- `VARIOTOPPIN` becomes `P7-VARIOTOPPIN`
-- `23ACIVZM` becomes `P7-23ACIVZM`
+Original SKUs from the source data are simply prefixed:
+
+```
+VARIOTOPPIN  ->  P7-VARIOTOPPIN
+23ACIVZM     ->  P7-23ACIVZM
+```
 
 ## Auto-Generated SKUs
 
-63 out of 382 product entries are missing SKUs. The script generates deterministic ones using a SHA-256 hash.
+Some product entries (63 out of 382 in the current dataset) are missing SKUs. The script generates **deterministic** SKUs using SHA-256 hashing.
 
 ### Format
 
@@ -18,25 +21,38 @@ Original SKUs from the source data get the prefix prepended:
 P7-XXXXXXXX
 ```
 
-Where `XXXXXXXX` is the first 8 characters (uppercase hex) of the SHA-256 hash.
+Where `XXXXXXXX` is the first 8 characters of the SHA-256 hash in uppercase hexadecimal.
 
 ### Hash Input
 
 The hash is computed from the string `{product_id}:{type}`:
 
-- `product_id` -- the `id` field from the JSON (groups variants together)
-- `type` -- the `type` field (differentiates variants within a product)
-- If `type` is empty, the variant's index position is used instead
+| Component | Source | Purpose |
+|---|---|---|
+| `product_id` | `id` field from JSON | Groups variants of the same product |
+| `type` | `type` field | Differentiates variants within a product |
+
+If `type` is empty, the variant's index position within the group is used instead.
 
 ### Determinism
 
-The same input always produces the same SKU. Running the script multiple times on the same data will generate identical SKUs, so Shopify can match them on re-import.
+The same input always produces the same SKU. Running the converter multiple times on unchanged data generates identical SKUs, ensuring Shopify can match products on re-import without creating duplicates.
 
-## Products Missing SKUs
+### Example
 
-The main groups without SKUs in the source data:
+```
+Input:  "1956:m"
+SHA-256: a3b2c1d4e5f67890...
+SKU:    P7-A3B2C1D4
+```
 
-- Qbond sail variants (SALTpro, Slash) -- variants not yet assigned codes
-- Boom clips -- 9 variants across different sizes/materials
-- Sail+mast bundle combos -- combination products without own SKUs
-- Some secondary variants of parts and accessories
+## Products Without Source SKUs
+
+The main product groups missing SKUs in the current dataset:
+
+| Group | Description |
+|---|---|
+| Qbond sail variants | SALTpro, Slash variants not yet assigned codes |
+| Boom clips | 9 variants across different sizes and materials |
+| Sail+mast bundles | Combination products without dedicated SKUs |
+| Miscellaneous | Some secondary variants of parts and accessories |
