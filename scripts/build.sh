@@ -47,9 +47,10 @@ echo "built into $OUT_DIR"
 if [ "${1:-}" = "--check" ]; then
   status=0
   for f in shopify_import.csv shopify_import_inventory.csv; do
-    if ! cmp -s "$ROOT/$f" "$OUT_DIR/$f"; then
+    # Line endings are ignored: the converter writes CRLF, git may check out LF.
+    if ! diff -q --strip-trailing-cr "$ROOT/$f" "$OUT_DIR/$f" >/dev/null; then
       echo "::error file=$f::$f is out of date with products.json / point7-to-shopify.py. Run the converter and commit the result."
-      diff -u "$ROOT/$f" "$OUT_DIR/$f" | head -40 || true
+      diff -u --strip-trailing-cr "$ROOT/$f" "$OUT_DIR/$f" | head -40 || true
       status=1
     fi
   done
