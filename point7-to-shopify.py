@@ -418,7 +418,7 @@ def main():
             save_cache(cache)
             print(f"  [OK] Got {len(new_categories)} new categories from API")
         else:
-            print(f"  [OK] All products served from cache")
+            print("  [OK] All products served from cache")
     else:
         print("  [WARN] Missing WEBHOOK_API_KEY or EXPORT_ID in .env -- skipping AI categorization, using fallback tags")
 

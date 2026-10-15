@@ -147,3 +147,6 @@ For `""` (boards) and `"sails"`: the name is already clean -- no stripping appli
 
 Total: 458 rows, 77 unique products
 ```
+
+## CI/CD
+`.github/workflows/ci.yml`: `check` (ruff, `python -m unittest discover -s tests`, `scripts/build.sh --check`) on every PR and push to main; on main, `release` publishes the CSVs as a GitHub Release (skipped when unchanged) and `verify` checks the public `releases/latest/download/` links. CI never calls the API: when products change, commit the updated `category_cache.json` and regenerated CSVs together or the check fails.
