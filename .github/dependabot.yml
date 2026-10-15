@@ -1,0 +1,12 @@
+# The converter has no Python dependencies (standard library only), so the
+# only thing to keep current is the actions the workflow uses. Batched into at
+# most one pull request a month; it goes through the `check` job like any other.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]

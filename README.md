@@ -205,6 +205,32 @@ Total                382        77        458
 
 ---
 
+## CI/CD
+
+`.github/workflows/ci.yml` runs **check → release → verify**:
+
+| Job | When | What |
+|---|---|---|
+| `check` | every PR and push to `main` | `ruff check`, unit tests (Python 3.10 and 3.13), and `scripts/build.sh --check`: rebuilds the CSVs from `products.json` + `category_cache.json` and fails if the committed CSVs differ |
+| `release` | push to `main` | Publishes the CSVs as a GitHub Release, only when they changed since the latest one |
+| `verify` | after a release | Downloads the public "latest" links and checks they match the build |
+
+CI never calls the categorization API. If you add products, run the converter locally with a real `.env` and commit the updated `category_cache.json` and CSVs together, or the check fails.
+
+The newest import files are always at:
+
+- `https://github.com/time-4-action/t4a-products-formater/releases/latest/download/shopify_import.csv`
+- `https://github.com/time-4-action/t4a-products-formater/releases/latest/download/shopify_import_inventory.csv`
+
+Run the same checks locally:
+
+```bash
+python -m unittest discover -s tests
+scripts/build.sh --check
+```
+
+---
+
 ## Requirements
 
 - **Python 3.10+**

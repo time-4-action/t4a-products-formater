@@ -1,0 +1,124 @@
+# check -> release -> verify.
+#
+# Checks every pull request and every push to main: lint, unit tests on the
+# oldest and newest supported Python, and a rebuild of the Shopify CSVs from
+# products.json + category_cache.json that must match the committed CSVs.
+# CI never calls the categorization API; a product missing from the cache
+# fails the check (scripts/build.sh).
+#
+# There is no server to deploy to: the "deploy" is a GitHub Release carrying
+# the two CSVs, so the newest import files always live at
+#   https://github.com/time-4-action/t4a-products-formater/releases/latest/download/shopify_import.csv
+#   https://github.com/time-4-action/t4a-products-formater/releases/latest/download/shopify_import_inventory.csv
+# A push to main that leaves the CSVs unchanged (docs, tests) publishes nothing.
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# A newer push to the same pull request supersedes the running check. On main
+# runs are never cancelled, only queued, so an older commit can never be
+# released over a newer one.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+env:
+  RUFF_VERSION: 0.14.0
+  LATEST_URL: https://github.com/${{ github.repository }}/releases/latest/download
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        # README promises 3.10+; the newest catches deprecations early.
+        python: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+
+      - run: pipx run ruff==$RUFF_VERSION check --output-format github .
+      - run: python -m unittest discover -s tests -v
+      # Fails if the committed CSVs are not what the converter produces now.
+      - run: scripts/build.sh --check
+
+  release:
+    needs: check
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: release
+      cancel-in-progress: false
+    timeout-minutes: 10
+    outputs:
+      published: ${{ steps.publish.outputs.published }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - run: scripts/build.sh
+
+      - id: publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd dist
+          sha256sum shopify_import.csv shopify_import_inventory.csv > SHA256SUMS
+
+          # Same CSVs as the latest release: nothing to publish.
+          if curl -fsSL --retry 3 "$LATEST_URL/SHA256SUMS" -o previous.sha256 2>/dev/null \
+             && cmp -s SHA256SUMS previous.sha256; then
+            echo "CSVs unchanged since the latest release; nothing to publish"
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          TAG="csv-$(date -u +%Y%m%d)-${GITHUB_SHA::7}"
+          gh release create "$TAG" \
+            --target "$GITHUB_SHA" \
+            --title "Shopify CSVs $(date -u +%Y-%m-%d) (${GITHUB_SHA::7})" \
+            --notes "Built from products.json at $GITHUB_SHA. Import shopify_import.csv under Products > Import, then shopify_import_inventory.csv under inventory import." \
+            --latest \
+            shopify_import.csv shopify_import_inventory.csv SHA256SUMS
+          echo "published=true" >> "$GITHUB_OUTPUT"
+          echo "released $TAG"
+
+  # From outside: the public "latest" download links must serve exactly the
+  # CSVs this commit built.
+  verify:
+    needs: release
+    if: needs.release.outputs.published == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - run: scripts/build.sh
+
+      - name: Public download check
+        run: |
+          mkdir public && cd public
+          for f in shopify_import.csv shopify_import_inventory.csv; do
+            curl -fsSL --retry 10 --retry-delay 6 --retry-all-errors --max-time 30 "$LATEST_URL/$f" -o "$f"
+            cmp "$f" "../dist/$f" || { echo "::error::$LATEST_URL/$f does not match this commit's build"; exit 1; }
+          done
+          echo "latest release serves this commit's CSVs"
